@@ -3,9 +3,19 @@
 </p>
 
 <p align="center">
-  <sub>summit.vin dev • student • nerd</sub>
+  <sub>dev • student • break • build • repeat</sub>
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d8723f07-ba9b-40c9-a20a-b7953093c998" />
+  <svg xmlns="http://www.w3.org/2000/svg" width="199.46728515625" height="28" role="img" aria-label="PROFILE VIEWS: 8,159,769">
+    <title>PROFILE VIEWS: 8,159,769</title>
+    <g shape-rendering="crispEdges">
+      <rect width="112.9521484375" height="28" fill="#555"/>
+      <rect x="112.9521484375" width="86.51513671875" height="28" fill="#007ec6"/>
+    </g>
+    <g fill="#fff" text-anchor="middle" text-rendering="geometricPrecision" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="10" letter-spacing="1.1">
+      <text x="57.5" y="17.5" fill="#fff">PROFILE VIEWS</text>
+      <text x="155.2521484375" y="17.5" fill="#fff" font-weight="bold">18,174</text>
+    </g>
+  </svg>
 </p>
