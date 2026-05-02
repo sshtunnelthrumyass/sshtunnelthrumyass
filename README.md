@@ -7,5 +7,5 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/sshtunnelthrumyass/sshtunnelthrumyass/main/assets/views.svg" />
+  <img src="https://github.com/sshtunnelthrumyass/sshtunnelthrumyass/blob/main/views.svg" />
 </p>
