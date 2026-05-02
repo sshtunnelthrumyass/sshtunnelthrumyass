@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <sub>dev • student • break • build • repeat</sub>
+  <sub>summit.vin dev • student • nerd</sub>
 </p>
 
 <p align="center">
