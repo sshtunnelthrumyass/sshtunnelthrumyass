@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/sshtunnelthrumyass/sshtunnelthrumyass/main/ezgif-610c4d2a50dae8e4.gif" width="340" />
+  <h1 align="center">OMEGA</h1>
 </p>
 
 <p align="center">
-  <sub>summit.vin dev • student • nerd</sub>
+  <sub>Software Developer @ OMEGA</sub>
 </p>
 
 <p align="center">
