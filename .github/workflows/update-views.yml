@@ -1,0 +1,45 @@
+name: Update Views Badge
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-badge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch real view count and update README
+        run: |
+          OFFSET=2000
+
+          # Fetch the SVG badge and extract the count
+          SVG=$(curl -sS "https://views-counter.vercel.app/badge?pageId=Klez-src&leftColor=1E242A&rightColor=1E242A&type=unique&label=views&style=flat")
+          REAL_COUNT=$(echo "$SVG" | grep -oP 'id="count">\K[0-9]+')
+
+          if [ -z "$REAL_COUNT" ]; then
+            echo "Failed to extract view count"
+            exit 1
+          fi
+
+          DISPLAY_COUNT=$((REAL_COUNT + OFFSET))
+          echo "Real: $REAL_COUNT | Display: $DISPLAY_COUNT"
+
+          BADGE_URL="https://img.shields.io/badge/views-${DISPLAY_COUNT}-1E242A?style=flat&labelColor=1E242A"
+
+          sed -i "s|<img src=\"https://views-counter.vercel.app/badge[^\"]*\" alt=\"Profile views\" />|<img src=\"${BADGE_URL}\" alt=\"Profile views\" />|" README.md
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet README.md || {
+            git add README.md
+            git commit -m "update view count badge"
+            git push
+          }
