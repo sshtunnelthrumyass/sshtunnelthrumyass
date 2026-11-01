@@ -4,5 +4,5 @@
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/views-2027-1E242A?style=flat<img src="https://views-counter.vercel.app/badge?pageId=Klez-src&leftColor=1E242A&rightColor=1E242A&type=unique&label=views&style=flat" alt="Profile views" />labelColor=1E242A" alt="Profile views" />
+  <img src="https://views-counter.vercel.app/badge?pageId=Klez-src&leftColor=1E242A&rightColor=1E242A&type=unique&label=views&style=flat" alt="Profile views" />
 </p>
