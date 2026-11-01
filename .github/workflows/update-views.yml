@@ -18,8 +18,7 @@ jobs:
         run: |
           OFFSET=2000
 
-          # Fetch the SVG badge and extract the count
-          SVG=$(curl -sS "https://views-counter.vercel.app/badge?pageId=Klez-src&leftColor=1E242A&rightColor=1E242A&type=unique&label=views&style=flat")
+          SVG=$(curl -sS 'https://views-counter.vercel.app/badge?pageId=Klez-src&leftColor=1E242A&rightColor=1E242A&type=unique&label=views&style=flat')
           REAL_COUNT=$(echo "$SVG" | grep -oP 'id="count">\K[0-9]+')
 
           if [ -z "$REAL_COUNT" ]; then
@@ -30,9 +29,19 @@ jobs:
           DISPLAY_COUNT=$((REAL_COUNT + OFFSET))
           echo "Real: $REAL_COUNT | Display: $DISPLAY_COUNT"
 
-          BADGE_URL="https://img.shields.io/badge/views-${DISPLAY_COUNT}-1E242A?style=flat&labelColor=1E242A"
+          cat > /tmp/update_badge.py << 'SCRIPT'
+          import re, sys
+          count = sys.argv[1]
+          with open('README.md', 'r') as f:
+              content = f.read()
+          new_img = f'<img src="https://img.shields.io/badge/views-{count}-1E242A?style=flat&labelColor=1E242A" alt="Profile views" />'
+          content = re.sub(r'<img src="https://views-counter\.vercel\.app/badge[^"]*" alt="Profile views" />', new_img, content)
+          content = re.sub(r'<img src="https://img\.shields\.io/badge/views-[^"]*" alt="Profile views" />', new_img, content)
+          with open('README.md', 'w') as f:
+              f.write(content)
+          SCRIPT
 
-          sed -i "s|<img src=\"https://views-counter.vercel.app/badge[^\"]*\" alt=\"Profile views\" />|<img src=\"${BADGE_URL}\" alt=\"Profile views\" />|" README.md
+          python3 /tmp/update_badge.py "$DISPLAY_COUNT"
 
       - name: Commit if changed
         run: |
