@@ -4,5 +4,5 @@
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/views-2032-1E242A?style=flat&labelColor=1E242A" alt="Profile views" />
+  <img src="https://img.shields.io/badge/views-2033-1E242A?style=flat&labelColor=1E242A" alt="Profile views" />
 </p>
